@@ -19,58 +19,24 @@
   <main class="container">
     <div class="row">
       <div class="col-12">
-        <div class="jumbotron">
-          <h1 class="display-4">Inlogregistratiesysteem/AM1C</h1>
-          <p>Een standaardtemplate voor een inlogregistratiesysteem</p>
-        </div>
+        <?php include("./banner.php"); ?>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              
-              <li class="nav-item active">
-                <a class="nav-link" href="./index.php?content=home">Home<span class="sr-only">(current)</span></a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="./index.php?content=register_form">Registreer</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="./index.php?content=login_form">Inloggen</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <?php include("./link.php"); ?>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
         <section class="content">
-          <?php 
-            if (isset($_GET["content"])) {
-              include("./" . $_GET["content"] . ".php"); 
-            } else {
-              include("./home.php");
-            }
-          ?>
+          <?php include("./pageloader.php"); ?>
         </section>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <footer>
-          Footer
-        </footer>  
+       <?php include("./footer.php"); ?>
       </div>
     </div>
   </main>
@@ -85,6 +51,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
