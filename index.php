@@ -44,6 +44,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="./index.php?content=register_form">Registreer</a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="./index.php?content=login_form">Inloggen</a>
+              </li>
             </ul>
           </div>
         </nav>
