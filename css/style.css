@@ -1,0 +1,12 @@
+.content {
+  background-color: rgb(238, 238, 238);
+  min-height: 40vh;
+  margin: 20px 0px;
+}
+
+footer {
+  background-color: rgb(221, 221, 221);
+  min-height: 8vh;
+  font-size: 2em;
+  text-align: center;
+}
