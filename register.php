@@ -4,7 +4,7 @@
   $email = $_POST["email"];
 
   if ( empty($_POST["email"])) {
-    echo 'U heeft geen e-mailadres ingevoerd. Dit is een verplicht veld. Probeer het nogmaals';
+    echo '<div class="alert alert-warning" role="alert">U heeft geen e-mailadres ingevoerd. Dit is een verplicht veld. Probeer het nogmaals</div>';
     header("Refresh: 3; url=./index.php?content=register_form");
   } else {
     $sql = "SELECT * FROM `login` WHERE `email` = '$email'";
