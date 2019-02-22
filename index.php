@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="./css/style.css">
 
-  <title>AM1C Inlogregistratiesysteem</title>
+  <title>AM1C Loginregistratiesysteem</title>
 </head>
 
 <body>
