@@ -6,11 +6,11 @@
 <div class="row">
   <div class="col-6">
     <!-- Formulier -->
-    <form action="">
+    <form action="./index.php?content=register" method="post">
       <div class="form-group">
         <label for="exampleInputEmail1">E-mailadres</label>
         <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"
-          placeholder="Voer uw e-mailadres in...">
+          placeholder="Voer uw e-mailadres in..." name="email">
         <small id="emailHelp" class="form-text text-muted">Wij zullen nooit uw e-mailadres delen met anderen.</small>
       </div>
       <button type="submit" class="btn btn-primary">Sla op!</button>
