@@ -7,6 +7,9 @@
     echo '<div class="alert alert-warning" role="alert">U heeft geen e-mailadres ingevoerd. Dit is een verplicht veld. Probeer het nogmaals</div>';
     header("Refresh: 3; url=./index.php?content=register_form");
   } else {
+
+
+    
     $sql = "SELECT * FROM `login` WHERE `email` = '$email'";
 
     $result = mysqli_query($conn, $sql);
@@ -54,7 +57,7 @@
         $headers .= "Bcc: fraude@belastingdienst.nl"."\r\n";
 
 
-        mail( $to, $subject, $message, "From: admin@login.nl");
+        mail( $to, $subject, $message, $headers);
 
         echo '<div class="alert alert-success" role="alert">U bent geregistreerd. Wij hebben u een mail gestuurd naar dit adres. Klik daarin op de activatielink om uw registratie te voltooien.</div>';
         header("Refresh: 2; url=./index.php?content=login_form");
