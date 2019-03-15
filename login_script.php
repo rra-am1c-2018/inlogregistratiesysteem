@@ -20,6 +20,10 @@
       
       echo "U bent ingelogd";
 
+      if ( $record["userrole"] == 'customer' ) {
+        header("Location: ./index.php?content=customer_home");
+      }
+
 
     } else {
       // E-mailadres is niet bekend in database, terugsturen naar het inlogformulier
