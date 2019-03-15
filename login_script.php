@@ -16,7 +16,16 @@
 
     $blowfish_password = $record["password"];
 
-    echo password_verify($password, $blowfish_password); exit();
+    if ( password_verify($password, $blowfish_password)) {
+      
+      echo "U bent ingelogd";
+
+
+    } else {
+      // E-mailadres is niet bekend in database, terugsturen naar het inlogformulier
+      echo '<div class="alert alert-danger" role="alert">Uw wachtwoord is niet correct, probeer het nogmaals</div>';
+      header("Refresh: 2; url=./index.php?content=login_form");
+    }
 
   } else {
     // E-mailadres is niet bekend in database, terugsturen naar het inlogformulier
