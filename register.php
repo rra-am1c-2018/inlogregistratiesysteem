@@ -1,7 +1,9 @@
 <?php
   include("./connect_db.php");
 
-  $email = $_POST["email"];
+  include("./functions.php");
+
+  $email = sanitize($_POST["email"]);
 
   if ( empty($_POST["email"])) {
     echo '<div class="alert alert-warning" role="alert">U heeft geen e-mailadres ingevoerd. Dit is een verplicht veld. Probeer het nogmaals</div>';
