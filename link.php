@@ -11,17 +11,24 @@
         <a class="nav-link" href="./index.php?content=home">Home<span class="sr-only">(current)</span></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="./index.php?content=register_form">Registreer</a>
-      </li>
+      <?php
+        if ( isset($_SESSION["id"])) {
+          echo '<li class="nav-item">
+                  <a class="nav-link" href="./index.php?content=logout">uitloggen</a>
+                </li>';
+        } else {
+          // Biedt de login en register links aan
+          echo '<li class="nav-item">
+                  <a class="nav-link" href="./index.php?content=register_form">Registreer</a>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="./index.php?content=login_form">Inloggen</a>
+                </li>';
+        }
 
-      <li class="nav-item">
-        <a class="nav-link" href="./index.php?content=login_form">Inloggen</a>
-      </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="./index.php?content=logout">uitloggen</a>
-      </li>
+      ?>
     </ul>
   </div>
+  <span id="welkom"><?php if (isset($_SESSION["email"])) { echo "Welkom " . $_SESSION["email"]; } ?></span>
 </nav>

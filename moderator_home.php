@@ -1,4 +1,7 @@
-<?php include("./security.php"); ?>
+<?php 
+$userrole = ['moderator', 'root', 'admin'];
+include("./security.php"); 
+?>
 
 
 <?php echo "Welkom " . $_SESSION["email"]; ?>
