@@ -18,6 +18,10 @@
       <li class="nav-item">
         <a class="nav-link" href="./index.php?content=login_form">Inloggen</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="./index.php?content=logout">uitloggen</a>
+      </li>
     </ul>
   </div>
 </nav>
