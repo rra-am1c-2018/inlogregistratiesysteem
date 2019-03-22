@@ -1,5 +1,5 @@
 <?php
-  var_dump($_POST);
+  // var_dump($_POST);
   include("./connect_db.php");
   include("./functions.php");
 
@@ -17,12 +17,35 @@
     $blowfish_password = $record["password"];
 
     if ( password_verify($password, $blowfish_password)) {
-      
-      echo "U bent ingelogd";
 
-      if ( $record["userrole"] == 'customer' ) {
-        header("Location: ./index.php?content=customer_home");
+      $_SESSION["id"] = $record["id"];
+      $_SESSION["email"] = $email;
+      $_SESSION["userrole"] = $record["userrole"];
+
+      switch ($record["userrole"]) {
+        case 'customer':
+          echo '<div class="alert alert-success" role="alert">U bent succesvol ingelogd. U wordt doorgestuurd naar uw Klant homepagina</div>';      
+          header("Refresh: 3; url=./index.php?content=customer_home");
+        break;
+        case 'admin':
+          echo '<div class="alert alert-success" role="alert">U bent succesvol ingelogd. U wordt doorgestuurd naar uw administrator homepagina</div>';      
+          header("Refresh: 3; url=./index.php?content=administrator_home");
+        break;
+        case 'root':
+          echo '<div class="alert alert-success" role="alert">U bent succesvol ingelogd. U wordt doorgestuurd naar uw root homepagina</div>';      
+          header("Refresh: 3; url=./index.php?content=root_home");
+        break;
+        case 'moderator':
+          echo '<div class="alert alert-success" role="alert">U bent succesvol ingelogd. U wordt doorgestuurd naar uw moderator homepagina</div>';      
+          header("Refresh: 3; url=./index.php?content=moderator_home");
+        break;
+        default:
+          echo '<div class="alert alert-warning" role="alert">U bent succesvol ingelogd. Maar uw gebruikersrol bestaat niet. Uwordt doorgestuurd naar de standaard homepagina</div>';      
+          header("Refresh: 3; url=./index.php?content=home");
+        break;
       }
+
+      
 
 
     } else {
