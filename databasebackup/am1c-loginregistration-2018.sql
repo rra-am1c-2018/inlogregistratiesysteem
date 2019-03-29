@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 08, 2019 at 07:59 AM
+-- Generation Time: Mar 29, 2019 at 07:54 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -35,19 +35,20 @@ CREATE TABLE IF NOT EXISTS `login` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `email` varchar(350) NOT NULL,
   `password` varchar(60) NOT NULL,
+  `userrole` enum('admin','root','customer','moderator') NOT NULL DEFAULT 'customer',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `email`, `password`) VALUES
-(1, 'a@a.nl', 'geheim'),
-(3, 'b@b.nl', 'geheim'),
-(4, 'adruijter@gmail.com', 'geheim'),
-(6, '', 'geheim'),
-(7, 'm@m.ml', 'geheim');
+INSERT INTO `login` (`id`, `email`, `password`, `userrole`) VALUES
+(1, 'adruijter@gmail.com', '$2y$10$2K3uHiksR4Gv0Em2bFzNSOvv631D2wLXm5tGRIbioq9U4YI21vDXW', 'customer'),
+(2, 'customer@gmail.com', '$2y$10$Ou1xyacfNqlSrUppkQ7kCeNPKcMEIDjoNYNzedl63mRtkGFCIoTgG', 'customer'),
+(3, 'administrator@gmail.com', '$2y$10$r.4PNXaGgNRgfZUU6YzFv.kliN7Eih03sGLKgouudJ/od1VogRwgG', 'admin'),
+(4, 'root@gmail.com', '$2y$10$T/9.N19O3DJsFe7g6TgdduJOEr9SP0FYz/WB96IqIQqApKBRXtXXe', 'root'),
+(5, 'moderator@gmail.com', '$2y$10$r2e5SMlH3N9sSLfwX7IuBOIxKrSZ0cIWTj.MSmnHQ53oTLtNoHo.K', 'moderator');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

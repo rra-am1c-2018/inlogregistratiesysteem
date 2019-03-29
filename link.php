@@ -7,18 +7,46 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 
-      <li class="nav-item active">
-        <a class="nav-link" href="./index.php?content=home">Home<span class="sr-only">(current)</span></a>
-      </li>
+      
 
       <?php
         if ( isset($_SESSION["id"])) {
+          
+          switch ($_SESSION["userrole"]) {
+            case 'admin':
+              echo '<li class="nav-item">
+                      <a class="nav-link" href="./index.php?content=administrator_home">adminhome</a>
+                    </li>';
+            break;
+            case 'root':
+              echo '<li class="nav-item">
+                      <a class="nav-link" href="./index.php?content=root_home">roothome</a>
+                    </li>';
+            break;
+            case 'moderator':
+              echo '<li class="nav-item">
+                      <a class="nav-link" href="./index.php?content=moderator_home">moderatorhome</a>
+                    </li>';
+            break;
+            case 'customer':
+              echo '<li class="nav-item">
+                      <a class="nav-link" href="./index.php?content=customer_home">customerhome</a>
+                    </li>';
+            break;
+            default:
+              header("Location: ./index.php?content=logout");
+            break;
+          }
+
           echo '<li class="nav-item">
                   <a class="nav-link" href="./index.php?content=logout">uitloggen</a>
                 </li>';
         } else {
           // Biedt de login en register links aan
-          echo '<li class="nav-item">
+          echo '<li class="nav-item active">
+                  <a class="nav-link" href="./index.php?content=home">Home<span class="sr-only">(current)</span></a>
+                </li>         
+                <li class="nav-item">
                   <a class="nav-link" href="./index.php?content=register_form">Registreer</a>
                 </li> 
                 <li class="nav-item">

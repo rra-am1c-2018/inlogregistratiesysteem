@@ -20,6 +20,13 @@
       echo '<div class="alert alert-info" role="alert">Het door u ingevoerde e-mailadres bestaat al. Kies een nieuw e-mailadres</div>';
       header("Refresh: 3; ./index.php?content=register_form");
     } else {
+
+      date_default_timezone_set("Europe/Amsterdam");
+      $date = date('d-m-Y H:i:s');
+      echo $date; exit();
+
+
+
       $sql = "INSERT INTO `login` (`id`,
                                 `email`,
                                 `password`)
