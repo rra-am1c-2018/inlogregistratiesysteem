@@ -20,10 +20,15 @@
       echo '<div class="alert alert-info" role="alert">Het door u ingevoerde e-mailadres bestaat al. Kies een nieuw e-mailadres</div>';
       header("Refresh: 3; ./index.php?content=register_form");
     } else {
-
+      // Genereren random password
       date_default_timezone_set("Europe/Amsterdam");
-      $date = date('d-m-Y H:i:s');
-      echo $date; exit();
+      $length_email = strlen($email);
+      $date_time = date('d-m-Y H:i:s');
+      $reverse_email = strrev($email);
+
+      $password = $date_time . $reverse_email . $length_email;
+
+      $pw = password_hash($password, PASSWORD_BCRYPT);
 
 
 
@@ -32,7 +37,7 @@
                                 `password`)
                         VALUES  (NULL,
                                 '$email',
-                                'geheim')";
+                                '$password')";
 
       $result = mysqli_query($conn, $sql);
 
@@ -55,7 +60,7 @@
                         <h1>Beste gebruiker,</h1>
                         <p>U kunt via de onderstaande link uw account activeren.</p>
                         <p>U kunt vervolgens uw wachtwoord instellen en inloggen op de site</p>
-                        <p><a href='http://www.loginregistration.am1c.org/index.php?content=createpassword&id=$id'>activatielink</a></p>
+                        <p><a href='http://www.loginregistration.am1c.org/index.php?content=createpassword&id=" . $id . "&pw=" . $pw . "'>activatielink</a></p>
                         <p>Met vriendelijke groet,</p>
                         <p>Arjan de Ruijter, admin</p>
                       </body>                    
