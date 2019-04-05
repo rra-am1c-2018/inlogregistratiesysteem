@@ -26,11 +26,9 @@
       $date_time = date('d-m-Y H:i:s');
       $reverse_email = strrev($email);
 
-      $password = $date_time . $reverse_email . $length_email;
+      $password = password_hash($date_time . $reverse_email . $length_email, PASSWORD_BCRYPT);
 
       $pw = password_hash($password, PASSWORD_BCRYPT);
-
-
 
       $sql = "INSERT INTO `login` (`id`,
                                 `email`,

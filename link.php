@@ -16,11 +16,17 @@
             case 'admin':
               echo '<li class="nav-item">
                       <a class="nav-link" href="./index.php?content=administrator_home">adminhome</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./index.php?content=change_userrole">gebruikersrol</a>
                     </li>';
             break;
             case 'root':
               echo '<li class="nav-item">
                       <a class="nav-link" href="./index.php?content=root_home">roothome</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./index.php?content=change_userrole">gebruikersrol</a>
                     </li>';
             break;
             case 'moderator':
