@@ -1,0 +1,11 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "Nieuwe map.data.unityweb",
+"asmCodeUrl": "Nieuwe map.asm.code.unityweb",
+"asmMemoryUrl": "Nieuwe map.asm.memory.unityweb",
+"asmFrameworkUrl": "Nieuwe map.asm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
